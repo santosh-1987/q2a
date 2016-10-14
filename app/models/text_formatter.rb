@@ -1,5 +1,5 @@
 class TextFormatter
-  def self.format_ruby_text(text,wrap=50,format=true)
+  def self.format_ruby_text(text,wrap,format=true)
     output = []
     new_text = text
     while new_text.length > wrap
@@ -31,8 +31,8 @@ class TextFormatter
       space_count = compute_flag(line,nil)
       count = 0
       while true
-        break if line.length >= max_length
-        line.insert(compute_flag(line,count)," ")
+        break if line.length >= max_length || compute_flag(line,count).nil?
+        line.insert(compute_flag(line,count),"-")
         if count < space_count-1
           count += 1
         else
@@ -40,12 +40,11 @@ class TextFormatter
         end
       end
     end
-    return line
+    return line.gsub("-"," ")
   end
 
   def self.compute_flag(line,flag=0)
-    indexes = line.split(" ").map {|char| line.index(char)}
-    indexes.delete(0)
+    indexes = line.enum_for(:scan,/ /).map { Regexp.last_match.begin(0) }
     return indexes.count if flag.nil?
     new_indexes = []
     while !indexes.empty?
@@ -72,7 +71,7 @@ end
 
 
 
-
+# line.enum_for(:scan,/ /).map { Regexp.last_match.begin(0) }
 
 # def self.format_text(text, wrap=50, indent=2)
 #   result = []

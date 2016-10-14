@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
     @questions = Question.all
     # binding.pry
     @formatted_text = TextFormatter.format_ruby_text(File.read("input_text.txt"),50,false)
-    @formatted_ruby_text = TextFormatter.format_ruby_text(File.read("input_text.txt"))
+    @formatted_ruby_text = TextFormatter.format_ruby_text(File.read("input_text.txt"),50)
 
   end
 
