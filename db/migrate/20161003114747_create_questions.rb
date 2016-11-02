@@ -7,5 +7,6 @@ class CreateQuestions < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+    # change_column :articles, :body, :text, :limit => 4294967295
   end
 end
