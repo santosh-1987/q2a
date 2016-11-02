@@ -1,0 +1,48 @@
+<div class="collapse" id="exCollapsingNavbar">
+  <div class="collapse-bg p-a-1">
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <%= link_to "Question","#", class: "nav-link #{yield(:question_active)}"%>
+        </li>
+        <li class="list-group-item">
+          <%= link_to "Answer","#", class: "nav-link #{yield(:answer_active)}"%>
+        </li>
+        <li class="list-group-item">
+          <%= link_to "Account","#", class: "nav-link #{yield(:account_active)}"%>
+        </li>
+        <%= render partial: 'devise/menu/registration_items',locals: {class_name: "list-group-item"} %>
+        <%= render partial: 'devise/menu/login_items',locals: {class_name: "list-group-item"} %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-light bg-faded">
+  <div class="container">
+    <a href="/" class="navbar-brand">
+      Shri<span class="light">Shakti</span>
+    </a>
+    <button class="navbar-toggler hidden-sm-up float-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">&#9776;</button>
+    <!--<form class="form-inline float-sm-right">-->
+      <!--<div class="input-group input-group-sm">-->
+        <!--<input type="text" class="form-control" placeholder="Search Query">-->
+      <!--</div>-->
+      <!--<button class="btn btn-outline-success btn-sm" type="submit">Go</button>-->
+    <!--</form>-->
+    <ul class="nav navbar-nav float-sm-right hidden-xs-down">
+      <li class="nav-item">
+        <%= link_to "Question","#", class: "nav-link #{yield(:question_active)}"%>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Answer","#", class: "nav-link #{yield(:answer_active)}"%>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Account","#", class: "nav-link #{yield(:account_active)}"%>
+      </li>
+      <%= render partial: 'devise/menu/registration_items',locals: {class_name: "nav-item"}  %>
+      <%= render partial: 'devise/menu/login_items',locals: {class_name: "nav-item"}  %>
+    </ul>
+    <span>&nbsp;</span>
+  </div>
+</nav>

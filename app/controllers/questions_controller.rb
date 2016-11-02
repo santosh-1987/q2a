@@ -5,9 +5,9 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @questions = Question.all
-    # binding.pry
-    @formatted_text = TextFormatter.format_ruby_text(File.read("input_text.txt"),50,false)
-    @formatted_ruby_text = TextFormatter.format_ruby_text(File.read("input_text.txt"),50)
+    # # binding.pry
+    # @formatted_text = TextFormatter.format_ruby_text(File.read("input_text.txt"),50,false)
+    # @formatted_ruby_text = TextFormatter.format_ruby_text(File.read("input_text.txt"),50)
 
   end
 
@@ -28,8 +28,8 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(question_params)
-
+    @question = current_user.questions.new(question_params)
+    binding.pry
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }

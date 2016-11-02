@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Shrishakti</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title><%= yield(:page_title) %> | ShriShakti | </title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-     <!--<p class="notice"><%#= notice %></p>-->
-     <!--<p class="alert"><%#= alert %></p>-->
-
-     <ul class="hmenu">
-       <%= render 'devise/menu/registration_items' %>
-       <%= render 'devise/menu/login_items' %>
-     </ul>
-    <%= yield %>
-  </body>
+<body>
+  <%= render "layouts/header"%>
+    <div class="container <%= controller_name %> <%= action_name %>">
+      <%= yield %>
+    </div>
+</body>
 </html>

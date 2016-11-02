@@ -27,8 +27,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 #Twitter Bootsrap
-gem 'bootstrap-sass', '~> 3.3.6'
-# Authentication Gem
+gem 'bootstrap', '~> 4.0.0.alpha5
+'# Authentication Gem
 gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
